@@ -4,7 +4,7 @@ DROP DATABASE IF EXISTS portfolio;
 -- utf8mb4 é o "verdadeiro UTF-8" do MariaDB. Suporta emojis e
 -- caracteres fora do plano básico Unicode.
 -- utf8mb4_unicode_ci: comparação case-insensitive ('A' = 'a').
-CREATE DATABASE portfolio
+CREATE DATABASE dwii_db
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE portfolio;
@@ -114,6 +114,17 @@ CREATE TABLE logs (
 -- IMPORTANTE: substitua a string abaixo pelo hash que você gerou
 -- com: php -r "echo password_hash('admin2026', PASSWORD_BCRYPT);"
 -- O hash autêntico começa com $2y$ e tem 60 caracteres.
+
+CREATE TABLE IF NOT EXISTS contatos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(120) NOT NULL,
+  email VARCHAR(180) NOT NULL,
+  mensagem TEXT NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+sudo mariadb dwii_db -e "CREATE TABLE IF NOT EXISTS contatos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(120) NOT NULL, email VARCHAR(180) NOT NULL, mensagem TEXT NOT NULL, criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
+
 INSERT INTO usuarios (login, senha, email) VALUES
   ('admin', '$2y$10$JJ6p6BV.2lFLtmNtyLy3a.brL483oinmoV.ZdAz2ut0CuA8zhI4U6', 'admin@portfolio.local');
 

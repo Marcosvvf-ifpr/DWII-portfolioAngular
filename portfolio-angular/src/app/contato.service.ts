@@ -12,8 +12,8 @@ export interface RespostaContato {
 
 @Injectable({ providedIn: 'root' })
 export class ContatoService {
-    private http = inject(Hhttps://miniature-space-doodle-5g699gq9j55gfvp7v-8000.app.github.dev/);
-    private url = 'http://localhost:8000/api/contato.php';
+    private http = inject(https://miniature-space-doodle-5g699gq9j55gfvp7v-8000.app.github.dev/);
+    private url = 'http://';
     enviar(dados: NovoContato): Observable<RespostaContato> {
         return this.http.post<RespostaContato>(this.url, dados);
     }

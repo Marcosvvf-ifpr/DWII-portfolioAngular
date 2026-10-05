@@ -1,3 +1,6 @@
+set_exception_handler(function ($e){
+    http_response_code(500);
+});
 <?php
 
 header('Content-type: applcation/json; charset=utf-8');

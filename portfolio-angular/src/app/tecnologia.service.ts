@@ -11,8 +11,8 @@ export interface Tecnologia {
 }
 @Injectable({ providedIn: 'root' })
 export class TecnologiaService {
-    private http inject(HttpClient);
-    private url = 'https://SEU-CODESPACE-8000.app.github.dev/api/tecnologias.php';
+    private http = inject(HttpClient);
+    private url = 'https://miniature-space-doodle-5g699gq9j55gfvp7v3000.app.github.dev/api/tecnologias';
     listar(): Observable<Tecnologia[]> {
         return this.http.get<Tecnologia[]>(this.url);
     }

@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 $host = 'localhost';
 $db = 'dwii_db';

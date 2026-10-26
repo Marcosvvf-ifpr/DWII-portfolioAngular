@@ -1,8 +1,14 @@
-## Aula 23: a API cria, altera e apaga
+## Aula 24: a tranca
 
-A API em uso e a de `api-node/`. Os arquivos `api/*.php` e `conexao.php` ficam no
-repositorio como historico do 2° trimestres.
+Quem escreve precisa de um token. Antes do primeiro uso, crie a tabela e o dono:
 
-    curl -i -X POST http://localhost:3000/api/projetos -H "Content-Type: application/json" -d '{"nome":"Projeto de testes","ano":2026}'
-    curl -i -X PUT http://localhost:3000/api/projetos/7 -H "Content-Type: application/json" -d '{"nome":"Projeto de teste (editado)","ano":2026}'
-    curl -i -X DELETE http://local:3000/api/projetos/7
+    sudo mariadb dwii_db < sql/usuarios.sql
+    cd api-node
+    npm install
+    node criar-usuario.js dono@portfolio.dev portfolio2026
+
+Login e escrita com o token: 
+
+    curl -i -X POST http://localhost:3000/api/login -H "Content-Type: application/json" -d *{"email": "dono@portfolio.dev", "senha": "portfolio2026"}"
+    curl -i -X POST http://localhost:3000/api/projetos -H "Authorization: Bearer $Token" -H "Content-Type: application/json" -d "{"nome": "Projeto com tranca", "ano":2026}'
+    curl -i -X PUT http://localhost:3000/api/projetos/8 -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" -d '{"nome": "Projeto com tranca (editado)", "ano":2026}'

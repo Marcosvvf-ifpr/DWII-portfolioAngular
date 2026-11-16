@@ -1,10 +1,10 @@
-## Aula 25: Portfolio em React
+### Aula 27: os projetos vem da API
 
-O front novo nasce em `portfolio-react/ (Vite + React), ao lado do Angular. Para rodar:
+O front busca os projetos e o catalogo na API em Node, com `fetch` dentro de um `useEffect`.
+O endereco da API fica em `src/api.js`. O arquivo `src/projetos.js` saiu: os dados moram no banco.
 
-    cd portfolio-react
-    npm install
-    npm run dev
+Para a tela mostrar os dados, a API precisa estar de pe, com a porta 3000 em Public:
 
-A tela abre na porta 5173. Por enquanto os projetos sao fixos no
-`src/App.jsx``
+    sudo service mariadb start
+    cd api-node
+    node server.js
